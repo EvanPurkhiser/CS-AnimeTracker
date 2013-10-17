@@ -292,6 +292,9 @@
 
     cell.textLabel.text  = [[object valueForKey:@"name"] description];
     cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
+
+    // Improve the scaled quality of the image by using a trilinear filtering algorithm
+    [cell.imageView.layer setMinificationFilter:kCAFilterTrilinear];
 }
 
 @end
