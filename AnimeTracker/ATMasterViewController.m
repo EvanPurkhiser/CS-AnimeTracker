@@ -10,6 +10,8 @@
 
 #import "ATDetailViewController.h"
 
+#define MAL_ANIME_LIST_URL @"http://mal-api.com/animelist/%@"
+
 @interface ATMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -85,6 +87,16 @@
     // Hold on to the old button so we can reattach it later
     UIBarButtonItem *priorLoadButton = self.navigationItem.rightBarButtonItems[1];
     self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], throbberButton];
+
+    // Load the animelist in a thread
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // construct the URL to load
+        NSString *animeListURL = [NSString stringWithFormat:MAL_ANIME_LIST_URL, [alert textFieldAtIndex:0].text];
+
+
+        // All done, get rid of the throbber
+        self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
+    });
 }
 
 
