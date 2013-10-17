@@ -98,7 +98,15 @@
         // Get the data from the URL.. this could take awhiel
         NSData *data = [NSData dataWithContentsOfURL:animeListURL];
 
-        NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        // Load into a NSJSONSerialization object
+        NSError *serializationError;
+        NSMutableDictionary *animeList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
+
+        // Load each Anime into the data store
+        for (NSDictionary *anime in animeList[@"anime"])
+        {
+            NSLog(@"%@", anime[@"title"]);
+        }
 
         // All done, get rid of the throbber
         self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
