@@ -89,10 +89,16 @@
     self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], throbberButton];
 
     // Load the animelist in a thread
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // construct the URL to load
-        NSString *animeListURL = [NSString stringWithFormat:MAL_ANIME_LIST_URL, [alert textFieldAtIndex:0].text];
+    dispatch_async(dispatch_get_main_queue(),
+    ^{
+        // Construct the URL to load
+        NSString *username  = [alert textFieldAtIndex:0].text;
+        NSURL *animeListURL = [NSURL URLWithString:[NSString stringWithFormat:MAL_ANIME_LIST_URL, username]];
 
+        // Get the data from the URL.. this could take awhiel
+        NSData *data = [NSData dataWithContentsOfURL:animeListURL];
+
+        NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
         // All done, get rid of the throbber
         self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
