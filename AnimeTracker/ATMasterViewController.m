@@ -61,18 +61,31 @@
 
 - (void)importFromMAL:(id)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import	", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import	", nil];
 
     // Add input box
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    UITextField *usernameInput = [alert textFieldAtIndex:0];
-
     // Default to my MAL username (Because really, I'm the only nerd who keeps track of what Anime they've watched..)
-    usernameInput.text = @"EvanPurkhiser";
-
+    [alert textFieldAtIndex:0].text = @"EvanPurkhsier";
 
     [alert show];
 }
+
+- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonId
+{
+    // This is only used for importing from MAL
+    if (buttonId == alert.cancelButtonIndex) return;
+
+    // Change the import button into a throbber
+    UIActivityIndicatorView *throbber = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    UIBarButtonItem *throbberButton = [[UIBarButtonItem alloc] initWithCustomView:throbber];
+    [throbber startAnimating];
+
+    // Hold on to the old button so we can reattach it later
+    UIBarButtonItem *priorLoadButton = self.navigationItem.rightBarButtonItems[1];
+    self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], throbberButton];
+}
+
 
 #pragma mark - Table View
 
