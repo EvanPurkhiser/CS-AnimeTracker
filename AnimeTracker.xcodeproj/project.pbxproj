@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20E4170D180FA87A00671C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170C180FA87A00671C68 /* Foundation.framework */; };
+		20E4170F180FA87A00671C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170E180FA87A00671C68 /* CoreGraphics.framework */; };
+		20E41711180FA87A00671C68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41710180FA87A00671C68 /* UIKit.framework */; };
+		20E41713180FA87A00671C68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41712180FA87A00671C68 /* CoreData.framework */; };
+		20E41719180FA87A00671C68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20E41717180FA87A00671C68 /* InfoPlist.strings */; };
+		20E4171B180FA87A00671C68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E4171A180FA87A00671C68 /* main.m */; };
+		20E4171F180FA87A00671C68 /* ATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E4171E180FA87A00671C68 /* ATAppDelegate.m */; };
+		20E41722180FA87A00671C68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20E41720180FA87A00671C68 /* Main.storyboard */; };
+		20E41725180FA87A00671C68 /* AnimeTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20E41723180FA87A00671C68 /* AnimeTracker.xcdatamodeld */; };
+		20E41728180FA87A00671C68 /* ATMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E41727180FA87A00671C68 /* ATMasterViewController.m */; };
+		20E4172B180FA87A00671C68 /* ATDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E4172A180FA87A00671C68 /* ATDetailViewController.m */; };
+		20E4172D180FA87A00671C68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20E4172C180FA87A00671C68 /* Images.xcassets */; };
+		20E41734180FA87A00671C68 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41733180FA87A00671C68 /* XCTest.framework */; };
+		20E41735180FA87A00671C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170C180FA87A00671C68 /* Foundation.framework */; };
+		20E41736180FA87A00671C68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41710180FA87A00671C68 /* UIKit.framework */; };
+		20E41737180FA87A00671C68 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41712180FA87A00671C68 /* CoreData.framework */; };
+		20E4173F180FA87A00671C68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20E4173D180FA87A00671C68 /* InfoPlist.strings */; };
+		20E41741180FA87A00671C68 /* AnimeTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E41740180FA87A00671C68 /* AnimeTrackerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20E41738180FA87A00671C68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20E41701180FA87A00671C68 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20E41708180FA87A00671C68;
+			remoteInfo = AnimeTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		20E41709180FA87A00671C68 /* AnimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E4170C180FA87A00671C68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		20E4170E180FA87A00671C68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		20E41710180FA87A00671C68 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		20E41712180FA87A00671C68 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		20E41716180FA87A00671C68 /* AnimeTracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimeTracker-Info.plist"; sourceTree = "<group>"; };
+		20E41718180FA87A00671C68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20E4171A180FA87A00671C68 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		20E4171C180FA87A00671C68 /* AnimeTracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnimeTracker-Prefix.pch"; sourceTree = "<group>"; };
+		20E4171D180FA87A00671C68 /* ATAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATAppDelegate.h; sourceTree = "<group>"; };
+		20E4171E180FA87A00671C68 /* ATAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATAppDelegate.m; sourceTree = "<group>"; };
+		20E41721180FA87A00671C68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		20E41724180FA87A00671C68 /* AnimeTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimeTracker.xcdatamodel; sourceTree = "<group>"; };
+		20E41726180FA87A00671C68 /* ATMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATMasterViewController.h; sourceTree = "<group>"; };
+		20E41727180FA87A00671C68 /* ATMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATMasterViewController.m; sourceTree = "<group>"; };
+		20E41729180FA87A00671C68 /* ATDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATDetailViewController.h; sourceTree = "<group>"; };
+		20E4172A180FA87A00671C68 /* ATDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATDetailViewController.m; sourceTree = "<group>"; };
+		20E4172C180FA87A00671C68 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		20E41732180FA87A00671C68 /* AnimeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E41733180FA87A00671C68 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		20E4173C180FA87A00671C68 /* AnimeTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimeTrackerTests-Info.plist"; sourceTree = "<group>"; };
+		20E4173E180FA87A00671C68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20E41740180FA87A00671C68 /* AnimeTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimeTrackerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20E41706180FA87A00671C68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E4170F180FA87A00671C68 /* CoreGraphics.framework in Frameworks */,
+				20E41713180FA87A00671C68 /* CoreData.framework in Frameworks */,
+				20E41711180FA87A00671C68 /* UIKit.framework in Frameworks */,
+				20E4170D180FA87A00671C68 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20E4172F180FA87A00671C68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E41734180FA87A00671C68 /* XCTest.framework in Frameworks */,
+				20E41737180FA87A00671C68 /* CoreData.framework in Frameworks */,
+				20E41736180FA87A00671C68 /* UIKit.framework in Frameworks */,
+				20E41735180FA87A00671C68 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20E41700180FA87A00671C68 = {
+			isa = PBXGroup;
+			children = (
+				20E41714180FA87A00671C68 /* AnimeTracker */,
+				20E4173A180FA87A00671C68 /* AnimeTrackerTests */,
+				20E4170B180FA87A00671C68 /* Frameworks */,
+				20E4170A180FA87A00671C68 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		20E4170A180FA87A00671C68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20E41709180FA87A00671C68 /* AnimeTracker.app */,
+				20E41732180FA87A00671C68 /* AnimeTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20E4170B180FA87A00671C68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20E4170C180FA87A00671C68 /* Foundation.framework */,
+				20E4170E180FA87A00671C68 /* CoreGraphics.framework */,
+				20E41710180FA87A00671C68 /* UIKit.framework */,
+				20E41712180FA87A00671C68 /* CoreData.framework */,
+				20E41733180FA87A00671C68 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20E41714180FA87A00671C68 /* AnimeTracker */ = {
+			isa = PBXGroup;
+			children = (
+				20E4171D180FA87A00671C68 /* ATAppDelegate.h */,
+				20E4171E180FA87A00671C68 /* ATAppDelegate.m */,
+				20E41720180FA87A00671C68 /* Main.storyboard */,
+				20E41726180FA87A00671C68 /* ATMasterViewController.h */,
+				20E41727180FA87A00671C68 /* ATMasterViewController.m */,
+				20E41729180FA87A00671C68 /* ATDetailViewController.h */,
+				20E4172A180FA87A00671C68 /* ATDetailViewController.m */,
+				20E4172C180FA87A00671C68 /* Images.xcassets */,
+				20E41723180FA87A00671C68 /* AnimeTracker.xcdatamodeld */,
+				20E41715180FA87A00671C68 /* Supporting Files */,
+			);
+			path = AnimeTracker;
+			sourceTree = "<group>";
+		};
+		20E41715180FA87A00671C68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20E41716180FA87A00671C68 /* AnimeTracker-Info.plist */,
+				20E41717180FA87A00671C68 /* InfoPlist.strings */,
+				20E4171A180FA87A00671C68 /* main.m */,
+				20E4171C180FA87A00671C68 /* AnimeTracker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20E4173A180FA87A00671C68 /* AnimeTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				20E41740180FA87A00671C68 /* AnimeTrackerTests.m */,
+				20E4173B180FA87A00671C68 /* Supporting Files */,
+			);
+			path = AnimeTrackerTests;
+			sourceTree = "<group>";
+		};
+		20E4173B180FA87A00671C68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20E4173C180FA87A00671C68 /* AnimeTrackerTests-Info.plist */,
+				20E4173D180FA87A00671C68 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20E41708180FA87A00671C68 /* AnimeTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20E41744180FA87A00671C68 /* Build configuration list for PBXNativeTarget "AnimeTracker" */;
+			buildPhases = (
+				20E41705180FA87A00671C68 /* Sources */,
+				20E41706180FA87A00671C68 /* Frameworks */,
+				20E41707180FA87A00671C68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimeTracker;
+			productName = AnimeTracker;
+			productReference = 20E41709180FA87A00671C68 /* AnimeTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		20E41731180FA87A00671C68 /* AnimeTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20E41747180FA87A00671C68 /* Build configuration list for PBXNativeTarget "AnimeTrackerTests" */;
+			buildPhases = (
+				20E4172E180FA87A00671C68 /* Sources */,
+				20E4172F180FA87A00671C68 /* Frameworks */,
+				20E41730180FA87A00671C68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20E41739180FA87A00671C68 /* PBXTargetDependency */,
+			);
+			name = AnimeTrackerTests;
+			productName = AnimeTrackerTests;
+			productReference = 20E41732180FA87A00671C68 /* AnimeTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20E41701180FA87A00671C68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Evan Purkhiser";
+				TargetAttributes = {
+					20E41731180FA87A00671C68 = {
+						TestTargetID = 20E41708180FA87A00671C68;
+					};
+				};
+			};
+			buildConfigurationList = 20E41704180FA87A00671C68 /* Build configuration list for PBXProject "AnimeTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 20E41700180FA87A00671C68;
+			productRefGroup = 20E4170A180FA87A00671C68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20E41708180FA87A00671C68 /* AnimeTracker */,
+				20E41731180FA87A00671C68 /* AnimeTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20E41707180FA87A00671C68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E4172D180FA87A00671C68 /* Images.xcassets in Resources */,
+				20E41719180FA87A00671C68 /* InfoPlist.strings in Resources */,
+				20E41722180FA87A00671C68 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20E41730180FA87A00671C68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E4173F180FA87A00671C68 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20E41705180FA87A00671C68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E4171B180FA87A00671C68 /* main.m in Sources */,
+				20E4172B180FA87A00671C68 /* ATDetailViewController.m in Sources */,
+				20E41725180FA87A00671C68 /* AnimeTracker.xcdatamodeld in Sources */,
+				20E4171F180FA87A00671C68 /* ATAppDelegate.m in Sources */,
+				20E41728180FA87A00671C68 /* ATMasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20E4172E180FA87A00671C68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20E41741180FA87A00671C68 /* AnimeTrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20E41739180FA87A00671C68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20E41708180FA87A00671C68 /* AnimeTracker */;
+			targetProxy = 20E41738180FA87A00671C68 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		20E41717180FA87A00671C68 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20E41718180FA87A00671C68 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		20E41720180FA87A00671C68 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20E41721180FA87A00671C68 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		20E4173D180FA87A00671C68 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20E4173E180FA87A00671C68 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		20E41742180FA87A00671C68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		20E41743180FA87A00671C68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20E41745180FA87A00671C68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeTracker/AnimeTracker-Prefix.pch";
+				INFOPLIST_FILE = "AnimeTracker/AnimeTracker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		20E41746180FA87A00671C68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeTracker/AnimeTracker-Prefix.pch";
+				INFOPLIST_FILE = "AnimeTracker/AnimeTracker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		20E41748180FA87A00671C68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnimeTracker.app/AnimeTracker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeTracker/AnimeTracker-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AnimeTrackerTests/AnimeTrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		20E41749180FA87A00671C68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnimeTracker.app/AnimeTracker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeTracker/AnimeTracker-Prefix.pch";
+				INFOPLIST_FILE = "AnimeTrackerTests/AnimeTrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20E41704180FA87A00671C68 /* Build configuration list for PBXProject "AnimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20E41742180FA87A00671C68 /* Debug */,
+				20E41743180FA87A00671C68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20E41744180FA87A00671C68 /* Build configuration list for PBXNativeTarget "AnimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20E41745180FA87A00671C68 /* Debug */,
+				20E41746180FA87A00671C68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		20E41747180FA87A00671C68 /* Build configuration list for PBXNativeTarget "AnimeTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20E41748180FA87A00671C68 /* Debug */,
+				20E41749180FA87A00671C68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		20E41723180FA87A00671C68 /* AnimeTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				20E41724180FA87A00671C68 /* AnimeTracker.xcdatamodel */,
+			);
+			currentVersion = 20E41724180FA87A00671C68 /* AnimeTracker.xcdatamodel */;
+			path = AnimeTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 20E41701180FA87A00671C68 /* Project object */;
+}
