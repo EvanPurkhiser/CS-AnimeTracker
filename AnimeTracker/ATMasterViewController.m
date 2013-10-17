@@ -113,14 +113,15 @@
                 [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
             }
         }
-        else
-        {
-            [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid MyAnimeList Username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-        }
 
         // Updates must happen on the main thread
         dispatch_async(dispatch_get_main_queue(),
         ^{
+            if ( ! data)
+            {
+                [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid MyAnimeList Username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            }
+
             // All done, get rid of the throbber
             self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
 
