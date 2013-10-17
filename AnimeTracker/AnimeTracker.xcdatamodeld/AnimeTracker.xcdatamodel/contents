@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Show" representedClassName="Show" syncable="YES">
+    <entity name="Anime" representedClassName="Anime" syncable="YES">
         <attribute name="airingStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="episodesTotal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="episodesWatched" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -12,6 +12,6 @@
         <attribute name="watchingStartedOn" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Show" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Anime" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

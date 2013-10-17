@@ -1,5 +1,5 @@
 //
-//  Show.h
+//  Anime.h
 //  AnimeTracker
 //
 //  Created by Evan Purkhiser on 10/17/13.
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Show : NSManagedObject
+@interface Anime : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * episodesTotal;
 @property (nonatomic, retain) NSNumber * episodesWatched;
