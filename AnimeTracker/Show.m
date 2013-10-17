@@ -21,4 +21,9 @@
 @dynamic airingStatus;
 @dynamic summary;
 
+- (void)setDataFromMAL:(NSDictionary *)anime
+{
+    self.name = anime[@"title"];
+}
+
 @end

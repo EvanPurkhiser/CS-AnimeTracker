@@ -22,4 +22,6 @@
 @property (nonatomic, retain) NSString * airingStatus;
 @property (nonatomic, retain) NSString * summary;
 
+- (void)setDataFromMAL:(NSDictionary *)anime;
+
 @end
