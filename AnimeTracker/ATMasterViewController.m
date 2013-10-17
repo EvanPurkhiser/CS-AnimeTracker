@@ -61,7 +61,17 @@
 
 - (void)importFromMAL:(id)sender
 {
-    NSLog(@"Importing from MAL! GO!");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import	", nil];
+
+    // Add input box
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField *usernameInput = [alert textFieldAtIndex:0];
+
+    // Default to my MAL username (Because really, I'm the only nerd who keeps track of what Anime they've watched..)
+    usernameInput.text = @"EvanPurkhiser";
+
+
+    [alert show];
 }
 
 #pragma mark - Table View
