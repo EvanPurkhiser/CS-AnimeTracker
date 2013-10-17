@@ -77,7 +77,8 @@
     if (buttonId == alert.cancelButtonIndex) return;
 
     // Change the import button into a throbber
-    UIActivityIndicatorView *throbber = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    UIActivityIndicatorView *throbber = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 32, 20)];
+    throbber.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     UIBarButtonItem *throbberButton = [[UIBarButtonItem alloc] initWithCustomView:throbber];
     [throbber startAnimating];
 
