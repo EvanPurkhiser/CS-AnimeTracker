@@ -28,7 +28,9 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    UIBarButtonItem *importButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(importFromMAL:)];
+
+    self.navigationItem.rightBarButtonItems = @[addButton, importButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +57,11 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+}
+
+- (void)importFromMAL:(id)sender
+{
+    NSLog(@"Importing from MAL! GO!");
 }
 
 #pragma mark - Table View
