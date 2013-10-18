@@ -9,6 +9,7 @@
 #import "ATMasterViewController.h"
 #import "ATDetailViewController.h"
 #import "Anime.h"
+#import "MALLoader.h"
 
 #define MAL_ANIME_LIST_URL @"http://mal-api.com/animelist/%@"
 
@@ -104,8 +105,8 @@
         NSURL *animeListURL = [NSURL URLWithString:[NSString stringWithFormat:MAL_ANIME_LIST_URL, username]];
 
         // Get the data from the URL.. this could take awhiel
-        NSData *data = [NSData dataWithContentsOfURL:animeListURL ];
-
+        NSData *data = [NSData dataWithContentsOfURL:animeListURL];
+        
         if (data)
         {
             // Load into a NSJSONSerialization object
