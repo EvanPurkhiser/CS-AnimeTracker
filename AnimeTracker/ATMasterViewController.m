@@ -11,7 +11,9 @@
 #import "Anime.h"
 #import "MALLoader.h"
 
-#define MAL_ANIME_LIST_URL @"http://mal-api.com/animelist/%@"
+#import "XMLDictionary/XMLDictionary.h"
+
+#define MAL_ANIME_LIST_URL @"http://myanimelist.net/malappinfo.php?status=all&type=anime&u=%@"
 
 @interface ATMasterViewController ()
 
@@ -157,8 +159,7 @@ NSArray *leftButtonsEditing;
         if (data)
         {
             // Load into a NSJSONSerialization object
-            NSError *serializationError;
-            NSMutableDictionary *animeList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
+            NSDictionary *animeList = [NSDictionary dictionaryWithXMLData:data];
 
             // Load each Anime into the data store
             for (NSDictionary *anime in animeList[@"anime"])
