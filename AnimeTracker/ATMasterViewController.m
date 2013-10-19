@@ -68,7 +68,7 @@
     // Add input box
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     // Default to my MAL username (Because really, I'm the only nerd who keeps track of what Anime they've watched..)
-    [alert textFieldAtIndex:0].text = @"EvanPurkhsier";
+    [alert textFieldAtIndex:0].text = @"EvanPurkhiser";
 
     [alert show];
 }
