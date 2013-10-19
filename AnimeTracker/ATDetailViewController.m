@@ -83,6 +83,10 @@
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    self.watchedEpisodes.enabled = NO;
+    self.totalEpisodes.enabled = NO;
+
+
     // Load data from the TVDB about this series if possible
     if ([self.detailItem valueForKey:@"idTVDB"] == nil)
     {
@@ -100,6 +104,28 @@
 - (void)didUpdateDetailItem:(NSNotification *)notification
 {
     [self configureView];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+
+    self.watchedEpisodes.enabled = editing;
+    self.totalEpisodes.enabled = editing;
+    self.summary.editable = editing;
+
+    // Save back into the managed object
+    if ( ! editing)
+    {
+        NSNumber *watched = [[NSNumberFormatter alloc] numberFromString:self.watchedEpisodes.text];
+        NSNumber *total   = [[NSNumberFormatter alloc] numberFromString:self.totalEpisodes.text];
+
+        [self.detailItem setValue:watched forKey:@"episodesWatched"];
+        [self.detailItem setValue:total forKey:@"episodesTotal"];
+        [self.detailItem setValue:self.summary.text forKey:@"summary"];
+
+        [[self.detailItem managedObjectContext] save:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
