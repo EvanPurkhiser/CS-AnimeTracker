@@ -116,7 +116,7 @@ NSArray *leftButtonsEditing;
 - (void)importFromMAL:(id)sender
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
-
+    
     // Add input box
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField *usernameInput = [alert textFieldAtIndex:0];
@@ -162,7 +162,7 @@ NSArray *leftButtonsEditing;
 
             // Return the right navigation buttons to the normal set
             self.navigationItem.rightBarButtonItems = rightButtonsNormal;
-            
+
             [context save:nil];
         });
 
@@ -339,7 +339,15 @@ NSArray *leftButtonsEditing;
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     cell.textLabel.text  = [[object valueForKey:@"name"] description];
-    cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
+    
+    if ([object valueForKey:@"image"])
+    {
+        cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"defaultPoster"];
+    }
 }
 
 @end
