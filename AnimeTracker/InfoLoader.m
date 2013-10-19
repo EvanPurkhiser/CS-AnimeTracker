@@ -30,11 +30,19 @@
     title = [title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:TVDB_Show_SEARCH, title]];
 
-    NSLog(@"url is %@", searchURL);
-
     // Get the data from the URL
     NSData *data = [NSData dataWithContentsOfURL:searchURL];
-    return [NSDictionary dictionaryWithXMLData:data];
+    NSDictionary *anime = [NSDictionary dictionaryWithXMLData:data][@"Series"];
+
+    // Just take the first result if multiple came back. This is certinally prone to error
+    // But what can we really do? We really should standardize on one service instead of
+    // using multiple services that overlap
+    if ([anime isKindOfClass:[NSArray class]])
+    {
+        return ((NSArray *) anime)[0];
+    }
+
+    return anime;
 }
 
 @end
@@ -62,6 +70,8 @@
 
 - (void)setDataFromMAL:(NSDictionary *)anime
 {
+    if (anime == nil) return;
+
     // Setup the values
     self.idMAL           = [[NSNumberFormatter alloc] numberFromString:anime[@"series_animedb_id"]];
     self.episodesTotal   = [[NSNumberFormatter alloc] numberFromString:anime[@"series_episodes"]];
@@ -90,6 +100,8 @@
 
 - (void)setDataFromTVDB:(NSDictionary *)anime
 {
+    if (anime == nil) return;
+
     // Setup the values
     self.idTVDB  = [[NSNumberFormatter alloc] numberFromString:anime[@"seriesid"]];
     self.summary = anime[@"Overview"];
