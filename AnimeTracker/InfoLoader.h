@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MALLoader : NSObject
+@interface InfoLoader : NSObject
 
 + (NSDictionary *)getAnimeListFor:(NSString *)username;
 

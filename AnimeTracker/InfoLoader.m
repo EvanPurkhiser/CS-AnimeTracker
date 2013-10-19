@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Evan Purkhiser. All rights reserved.
 //
 
-#import "MALLoader.h"
+#import "InfoLoader.h"
 #import "XMLDictionary/XMLDictionary.h"
 
 #define MAL_ANIME_LIST_URL @"http://myanimelist.net/malappinfo.php?status=all&type=anime&u=%@"
 
-@implementation MALLoader
+@implementation InfoLoader
 
 + (NSDictionary *)getAnimeListFor:(NSString *)username
 {

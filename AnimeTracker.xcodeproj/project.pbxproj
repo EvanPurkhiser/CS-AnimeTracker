@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		202B0E8D18113FD700C8C927 /* MALLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 202B0E8C18113FD700C8C927 /* MALLoader.m */; };
+		202B0E8D18113FD700C8C927 /* InfoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 202B0E8C18113FD700C8C927 /* InfoLoader.m */; };
 		2080EFBB181237B30090ABC8 /* ATCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2080EFBA181237B30090ABC8 /* ATCell.m */; };
 		2081D3C11812827F00C7250C /* Anime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2081D3C01812827F00C7250C /* Anime.m */; };
 		208220A51812157F004F74B9 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 208220A41812157F004F74B9 /* XMLDictionary.m */; };
@@ -42,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		202B0E8B18113FD700C8C927 /* MALLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MALLoader.h; sourceTree = "<group>"; };
-		202B0E8C18113FD700C8C927 /* MALLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MALLoader.m; sourceTree = "<group>"; };
+		202B0E8B18113FD700C8C927 /* InfoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLoader.h; sourceTree = "<group>"; };
+		202B0E8C18113FD700C8C927 /* InfoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLoader.m; sourceTree = "<group>"; };
 		2080EFB9181237B30090ABC8 /* ATCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCell.h; sourceTree = "<group>"; };
 		2080EFBA181237B30090ABC8 /* ATCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCell.m; sourceTree = "<group>"; };
 		2081D3BF1812827F00C7250C /* Anime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anime.h; sourceTree = "<group>"; };
@@ -153,8 +153,8 @@
 				2080EFBA181237B30090ABC8 /* ATCell.m */,
 				20E41729180FA87A00671C68 /* ATDetailViewController.h */,
 				20E4172A180FA87A00671C68 /* ATDetailViewController.m */,
-				202B0E8B18113FD700C8C927 /* MALLoader.h */,
-				202B0E8C18113FD700C8C927 /* MALLoader.m */,
+				202B0E8B18113FD700C8C927 /* InfoLoader.h */,
+				202B0E8C18113FD700C8C927 /* InfoLoader.m */,
 				20E4172C180FA87A00671C68 /* Images.xcassets */,
 				20E41723180FA87A00671C68 /* AnimeTracker.xcdatamodeld */,
 				2081D3BF1812827F00C7250C /* Anime.h */,
@@ -296,7 +296,7 @@
 				20E4171B180FA87A00671C68 /* main.m in Sources */,
 				20E4172B180FA87A00671C68 /* ATDetailViewController.m in Sources */,
 				2081D3C11812827F00C7250C /* Anime.m in Sources */,
-				202B0E8D18113FD700C8C927 /* MALLoader.m in Sources */,
+				202B0E8D18113FD700C8C927 /* InfoLoader.m in Sources */,
 				2080EFBB181237B30090ABC8 /* ATCell.m in Sources */,
 				20E41725180FA87A00671C68 /* AnimeTracker.xcdatamodeld in Sources */,
 				20E4171F180FA87A00671C68 /* ATAppDelegate.m in Sources */,
