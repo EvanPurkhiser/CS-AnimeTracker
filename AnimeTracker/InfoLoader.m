@@ -67,6 +67,7 @@
     self.episodesTotal   = [[NSNumberFormatter alloc] numberFromString:anime[@"series_episodes"]];
     self.episodesWatched = [[NSNumberFormatter alloc] numberFromString:anime[@"my_watched_episodes"]];
     self.rating          = [[NSNumberFormatter alloc] numberFromString:anime[@"my_score"]];
+    self.firstAirDate    = [[NSDateFormatter new] dateFromString:anime[@"series_start"]];
     self.name            = anime[@"series_title"];
     self.airingStatus    = anime[@"my_status"];
 
@@ -93,7 +94,11 @@
     self.idTVDB  = [[NSNumberFormatter alloc] numberFromString:anime[@"seriesid"]];
     self.summary = anime[@"Overview"];
     self.network = anime[@"Network"];
-    self.firstAirDate = [anime[@"FirstAired"] date];
+
+    if ( ! self.firstAirDate)
+    {
+        self.firstAirDate = [[NSDateFormatter new] dateFromString:anime[@"FirstAired"]];
+    }
 
     // Again, store the banner as a BLOB
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
