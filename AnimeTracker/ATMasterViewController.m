@@ -181,6 +181,16 @@ NSArray *leftButtonsEditing;
 
 - (void)doInsertAnime:(NSString *)animeName
 {
+    if ([animeName isEqual:@""]) return;
+
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+
+    Anime *newAnime = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    newAnime.name = animeName;
+    [context save:nil];
+
+    [self performSegueWithIdentifier:@"showDetail" sender:newAnime];
 }
 
 #pragma mark - Table View
@@ -233,9 +243,16 @@ NSArray *leftButtonsEditing;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
+        NSManagedObject *object = sender;
+
+        if ( ! [sender isKindOfClass:[NSManagedObject class]])
+        {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        }
+
         [[segue destinationViewController] setDetailItem:object];
     }
 }
