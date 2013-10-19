@@ -89,7 +89,7 @@
     self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], throbberButton];
 
     // Load the animelist in a thread
-    dispatch_async(dispatch_get_main_queue(),
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
     ^{
         // Construct the URL to load
         NSString *username  = [alert textFieldAtIndex:0].text;
