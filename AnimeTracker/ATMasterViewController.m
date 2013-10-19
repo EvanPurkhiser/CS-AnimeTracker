@@ -11,10 +11,16 @@
 #import "Anime.h"
 #import "InfoLoader.h"
 
+#define ALERT_IMPORT_MAL 0
+#define ALERT_INSERT     1
+
 @interface ATMasterViewController ()
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 - (void)importFromMAL:(id)sender;
+- (void)doMALImport:(NSString *)username;
+- (void)doInsertAnime:(NSString *)animeName;
 
 @end
 
@@ -68,22 +74,12 @@ NSArray *leftButtonsEditing;
 
 - (void)insertNewObject:(id)sender
 {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add New Anime" message:@"Enter the name of a Anime" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
 
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:@"New Show" forKey:@"name"];
+    alert.tag = ALERT_INSERT;
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
 
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-         // Replace this implementation with code to handle the error appropriately.
-         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
+    [alert show];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -120,6 +116,8 @@ NSArray *leftButtonsEditing;
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
 
+    alert.tag = ALERT_IMPORT_MAL;
+
     // Add input box
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField *usernameInput = [alert textFieldAtIndex:0];
@@ -133,9 +131,21 @@ NSArray *leftButtonsEditing;
 
 - (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonId
 {
-    // This is only used for importing from MAL
     if (buttonId == alert.cancelButtonIndex) return;
 
+    switch (alert.tag)
+    {
+        case ALERT_INSERT:
+            [self doInsertAnime:[alert textFieldAtIndex:0].text];
+            break;
+        case ALERT_IMPORT_MAL:
+            [self doMALImport:[alert textFieldAtIndex:0].text];
+            break;
+    }
+}
+
+- (void)doMALImport:(NSString *)username
+{
     // Change the navigation buttons to the importing state
     self.navigationItem.rightBarButtonItems = rightButtonsImporting;
 
@@ -145,8 +155,6 @@ NSArray *leftButtonsEditing;
     // Load the animelist in a thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
     ^{
-        // Load anime list from MAL
-        NSString *username  = [alert textFieldAtIndex:0].text;
         NSDictionary *animeList = [InfoLoader getAnimeListFor:username];
 
         // Updates must happen on the main thread
@@ -168,8 +176,11 @@ NSArray *leftButtonsEditing;
 
             [context save:nil];
         });
-
     });
+}
+
+- (void)doInsertAnime:(NSString *)animeName
+{
 }
 
 #pragma mark - Table View
