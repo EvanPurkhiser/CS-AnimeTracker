@@ -112,6 +112,7 @@ NSArray *leftButtonsEditing;
     }
 
     [context save:nil];
+    [self setEditing:NO animated:YES];
 }
 
 - (void)importFromMAL:(id)sender
