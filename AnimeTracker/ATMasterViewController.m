@@ -112,6 +112,8 @@
             {
                 [[[Show alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
             }
+
+            [context save:nil];
         }
         else
         {
