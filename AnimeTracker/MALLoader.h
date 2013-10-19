@@ -18,6 +18,7 @@
 
 @interface Anime (MALLoader)
 
+- (BOOL)discardIfidMALExists;
 - (void)setDataFromMAL:(NSDictionary *)anime;
 
 @end

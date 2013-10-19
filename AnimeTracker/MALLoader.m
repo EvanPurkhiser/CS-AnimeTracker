@@ -26,6 +26,25 @@
 
 @implementation Anime (MALLoader)
 
+- (BOOL)discardIfidMALExists
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+
+    // Check if this specific anime already exists as a entity
+    NSFetchRequest *request = [NSFetchRequest new];
+    request.entity = [self entity];
+    request.predicate = [NSPredicate predicateWithFormat:@"idMAL == %@", self.idMAL];
+
+    // Discard this object if this anime now exists twice
+    if ([context countForFetchRequest:request error:nil] > 1)
+    {
+        [context deleteObject:self];
+        return YES;
+    }
+
+    return NO;
+}
+
 - (void)setDataFromMAL:(NSDictionary *)anime
 {
     self.idMAL           = [[NSNumberFormatter alloc] numberFromString:anime[@"series_animedb_id"]];
