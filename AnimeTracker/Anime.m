@@ -1,15 +1,15 @@
 //
-//  Show.m
+//  Anime.m
 //  AnimeTracker
 //
 //  Created by Evan Purkhiser on 10/17/13.
 //  Copyright (c) 2013 Evan Purkhiser. All rights reserved.
 //
 
-#import "Show.h"
+#import "Anime.h"
 
 
-@implementation Show
+@implementation Anime
 
 @dynamic episodesTotal;
 @dynamic episodesWatched;

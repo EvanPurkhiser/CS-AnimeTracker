@@ -8,7 +8,7 @@
 
 #import "ATMasterViewController.h"
 #import "ATDetailViewController.h"
-#import "Show.h"
+#import "Anime.h"
 
 #define MAL_ANIME_LIST_URL @"http://mal-api.com/animelist/%@"
 
@@ -110,7 +110,7 @@
             // Load each Anime into the data store
             for (NSDictionary *anime in animeList[@"anime"])
             {
-                [[[Show alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
+                [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
             }
 
             [context save:nil];
@@ -193,7 +193,7 @@
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Show" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Anime" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
 
     // Set the batch size to a suitable number.
