@@ -146,15 +146,15 @@ NSArray *leftButtonsEditing;
         NSString *username  = [alert textFieldAtIndex:0].text;
         NSDictionary *animeList = [MALLoader getAnimeListFor:username];
 
-        // Load each Anime into the data store
-        for (NSDictionary *anime in animeList[@"anime"])
-        {
-            [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
-        }
-
         // Updates must happen on the main thread
         dispatch_async(dispatch_get_main_queue(),
         ^{
+            // Load each Anime into the data store
+            for (NSDictionary *anime in animeList[@"anime"])
+            {
+                [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
+            }
+
             if (animeList[@"error"])
             {
                 [[[UIAlertView alloc] initWithTitle:@"Problem Importing Anime List" message:animeList[@"error"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
