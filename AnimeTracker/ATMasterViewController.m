@@ -189,15 +189,6 @@ NSArray *leftButtonsEditing;
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
-
-    // Crop the image into
-    
-    
-    // Cleanup the iamgeView styling
-    cell.imageView.clipsToBounds = YES;
-    cell.imageView.layer.cornerRadius = 2;
-    cell.imageView.layer.minificationFilter = kCAFilterTrilinear;
-
     return cell;
 }
 
