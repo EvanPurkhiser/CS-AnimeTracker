@@ -339,7 +339,15 @@ NSArray *leftButtonsEditing;
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     cell.textLabel.text  = [[object valueForKey:@"name"] description];
-    cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
+
+    if ([object valueForKey:@"image"])
+    {
+        cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"defaultPoster"];
+    }
 }
 
 @end
