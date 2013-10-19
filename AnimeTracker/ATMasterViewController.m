@@ -7,8 +7,8 @@
 //
 
 #import "ATMasterViewController.h"
-
 #import "ATDetailViewController.h"
+#import "Show.h"
 
 #define MAL_ANIME_LIST_URL @"http://mal-api.com/animelist/%@"
 
@@ -102,10 +102,13 @@
         NSError *serializationError;
         NSMutableDictionary *animeList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
 
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+
         // Load each Anime into the data store
         for (NSDictionary *anime in animeList[@"anime"])
         {
-            NSLog(@"%@", anime[@"title"]);
+            [[[Show alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
         }
 
         // All done, get rid of the throbber
