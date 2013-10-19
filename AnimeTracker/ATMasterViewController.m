@@ -88,6 +88,9 @@
     UIBarButtonItem *priorLoadButton = self.navigationItem.rightBarButtonItems[1];
     self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], throbberButton];
 
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+
     // Load the animelist in a thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
     ^{
@@ -104,27 +107,28 @@
             NSError *serializationError;
             NSMutableDictionary *animeList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
 
-            NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-            NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-
             // Load each Anime into the data store
             for (NSDictionary *anime in animeList[@"anime"])
             {
                 [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
             }
-
-            [context save:nil];
         }
         else
         {
             [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid MyAnimeList Username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }
 
-        // All done, get rid of the throbber
-        self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
+        // Updates must happen on the main thread
+        dispatch_async(dispatch_get_main_queue(),
+        ^{
+            // All done, get rid of the throbber
+            self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
+
+            [context save:nil];
+        });
+
     });
 }
-
 
 #pragma mark - Table View
 
