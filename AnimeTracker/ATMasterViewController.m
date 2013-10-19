@@ -9,7 +9,7 @@
 #import "ATMasterViewController.h"
 #import "ATDetailViewController.h"
 #import "Anime.h"
-#import "MALLoader.h"
+#import "InfoLoader.h"
 
 @interface ATMasterViewController ()
 
@@ -147,7 +147,7 @@ NSArray *leftButtonsEditing;
     ^{
         // Load anime list from MAL
         NSString *username  = [alert textFieldAtIndex:0].text;
-        NSDictionary *animeList = [MALLoader getAnimeListFor:username];
+        NSDictionary *animeList = [InfoLoader getAnimeListFor:username];
 
         // Updates must happen on the main thread
         dispatch_async(dispatch_get_main_queue(),
