@@ -86,6 +86,9 @@
     self.watchedEpisodes.enabled = NO;
     self.totalEpisodes.enabled = NO;
 
+    self.watchedEpisodes.delegate = (id) self;
+    self.totalEpisodes.delegate   = (id) self;
+    self.summary.delegate         = (id) self;
 
     // Load data from the TVDB about this series if possible
     if ([self.detailItem valueForKey:@"idTVDB"] == nil)
@@ -104,6 +107,17 @@
 - (void)didUpdateDetailItem:(NSNotification *)notification
 {
     [self configureView];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+
+    return YES;
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
