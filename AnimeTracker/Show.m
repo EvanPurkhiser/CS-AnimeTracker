@@ -23,7 +23,11 @@
 
 - (void)setDataFromMAL:(NSDictionary *)anime
 {
+    self.episodesTotal = anime[@"episodes"];
+    self.episodesWatched = anime[@"watched_episodes"];
     self.name = anime[@"title"];
+    self.rating = anime[@"score"];
+    self.airingStatus = anime[@"status"];
 }
 
 @end
