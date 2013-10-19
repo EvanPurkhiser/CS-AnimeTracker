@@ -15,7 +15,7 @@
 @dynamic episodesTotal;
 @dynamic episodesWatched;
 @dynamic idMAL;
-@dynamic image;
+@dynamic imagePoster;
 @dynamic name;
 @dynamic notes;
 @dynamic rating;
@@ -25,5 +25,6 @@
 @dynamic idTVDB;
 @dynamic firstAirDate;
 @dynamic network;
+@dynamic imageBanner;
 
 @end
