@@ -120,8 +120,6 @@
 
         dispatch_async(dispatch_get_main_queue(),
         ^{
-            NSLog(@"Saving banner");
-
             self.imageBanner = image;
             [[self managedObjectContext] save:nil];
         });
