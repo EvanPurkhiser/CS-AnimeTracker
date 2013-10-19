@@ -55,6 +55,9 @@ NSArray *leftButtonsEditing;
 
     self.navigationItem.leftBarButtonItems  = leftButtonsNormal;
     self.navigationItem.rightBarButtonItems = rightButtonsNormal;
+
+    // Change the title of the back button for when we segue to the detail view
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Anime" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)didReceiveMemoryWarning
