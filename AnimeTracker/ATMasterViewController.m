@@ -87,8 +87,6 @@ NSArray *leftButtonsEditing;
 {
     [super setEditing:editing animated:animated];
 
-    NSLog(@"is animaated: %d", animated);
-
     if (editing)
     {
         self.navigationItem.leftBarButtonItems = leftButtonsEditing;
@@ -127,9 +125,7 @@ NSArray *leftButtonsEditing;
 
     // Default to my MAL username (Because really, I'm the only nerd who keeps track of what Anime they've watched..)
     usernameInput.text = @"EvanPurkhiser";
-
-    // Make the input box
-    usernameInput.textAlignment   = NSTextAlignmentCenter;
+    usernameInput.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonId
