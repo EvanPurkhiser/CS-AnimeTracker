@@ -24,4 +24,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *summaryHeightConstraint;
 
+- (IBAction)doneEditing:(id)sender;
+
 @end
