@@ -155,25 +155,23 @@ NSArray *leftButtonsEditing;
 
         // Get the data from the URL.. this could take awhiel
         NSData *data = [NSData dataWithContentsOfURL:animeListURL];
-        
-        if (data)
-        {
-            // Load into a NSJSONSerialization object
-            NSDictionary *animeList = [NSDictionary dictionaryWithXMLData:data];
+        NSDictionary *animeList = [NSDictionary dictionaryWithXMLData:data];
 
-            // Load each Anime into the data store
-            for (NSDictionary *anime in animeList[@"anime"])
-            {
-                [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
-            }
+        // Check for errors
+        NSString *errorMessage = animeList[@"error"];
+        
+        // Load each Anime into the data store
+        for (NSDictionary *anime in animeList[@"anime"])
+        {
+            [[[Anime alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
         }
 
         // Updates must happen on the main thread
         dispatch_async(dispatch_get_main_queue(),
         ^{
-            if ( ! data)
+            if (errorMessage)
             {
-                [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid MyAnimeList Username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                [[[UIAlertView alloc] initWithTitle:@"Problem Importing Anime List" message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
             }
 
             // Return the right navigation buttons to the normal set
