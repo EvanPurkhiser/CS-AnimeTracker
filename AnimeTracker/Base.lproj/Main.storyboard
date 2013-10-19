@@ -162,7 +162,7 @@
                     <navigationItem key="navigationItem" id="cra-N8-TIN"/>
                     <connections>
                         <outlet property="banner" destination="R5N-tW-4GK" id="uia-8M-B8i"/>
-                        <outlet property="episodeProgress" destination="9yT-TB-PTv" id="sVT-ZE-oI6"/>
+                        <outlet property="episodeProgress" destination="9yT-TB-PTv" id="Joh-R5-hwK"/>
                         <outlet property="name" destination="Lei-5M-9Gs" id="Q5b-Zm-FuK"/>
                         <outlet property="scrollView" destination="rd2-62-LBZ" id="dCZ-9G-bn0"/>
                         <outlet property="scrollViewContainer" destination="khA-3M-74V" id="Yoc-9K-BaW"/>
