@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ATDetailViewController : UIViewController
+@interface ATDetailViewController : UIViewController <UITextViewDelegate>
 
 @property (strong, nonatomic) id detailItem;
 
