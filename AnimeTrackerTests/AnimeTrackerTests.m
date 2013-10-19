@@ -1,18 +1,18 @@
 //
-//  InfoTests.m
-//  InfoTests
+//  AnimeTrackerTests.m
+//  AnimeTrackerTests
 //
-//  Created by Michael Collard on 10/4/13.
-//  Copyright (c) 2013 collard. All rights reserved.
+//  Created by Evan Purkhiser on 10/17/13.
+//  Copyright (c) 2013 Evan Purkhiser. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface InfoTests : XCTestCase
+@interface AnimeTrackerTests : XCTestCase
 
 @end
 
-@implementation InfoTests
+@implementation AnimeTrackerTests
 
 - (void)setUp
 {

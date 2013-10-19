@@ -1,18 +1,18 @@
 //
-//  INDetailViewController.m
-//  Info
+//  ATDetailViewController.m
+//  AnimeTracker
 //
-//  Created by Michael Collard on 10/4/13.
-//  Copyright (c) 2013 collard. All rights reserved.
+//  Created by Evan Purkhiser on 10/17/13.
+//  Copyright (c) 2013 Evan Purkhiser. All rights reserved.
 //
 
-#import "INDetailViewController.h"
+#import "ATDetailViewController.h"
 
-@interface INDetailViewController ()
+@interface ATDetailViewController ()
 - (void)configureView;
 @end
 
-@implementation INDetailViewController
+@implementation ATDetailViewController
 
 #pragma mark - Managing the detail item
 
@@ -20,7 +20,7 @@
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
@@ -31,7 +31,7 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
     }
 }
 
