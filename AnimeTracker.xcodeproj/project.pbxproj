@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		202B0E8D18113FD700C8C927 /* MALLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 202B0E8C18113FD700C8C927 /* MALLoader.m */; };
-		202B0E901811439E00C8C927 /* Anime.m in Sources */ = {isa = PBXBuildFile; fileRef = 202B0E8F1811439E00C8C927 /* Anime.m */; };
 		208220A51812157F004F74B9 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 208220A41812157F004F74B9 /* XMLDictionary.m */; };
+		208220A818121B8D004F74B9 /* Anime.m in Sources */ = {isa = PBXBuildFile; fileRef = 208220A718121B8D004F74B9 /* Anime.m */; };
 		20E4170D180FA87A00671C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170C180FA87A00671C68 /* Foundation.framework */; };
 		20E4170F180FA87A00671C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170E180FA87A00671C68 /* CoreGraphics.framework */; };
 		20E41711180FA87A00671C68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41710180FA87A00671C68 /* UIKit.framework */; };
@@ -43,10 +43,10 @@
 /* Begin PBXFileReference section */
 		202B0E8B18113FD700C8C927 /* MALLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MALLoader.h; sourceTree = "<group>"; };
 		202B0E8C18113FD700C8C927 /* MALLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MALLoader.m; sourceTree = "<group>"; };
-		202B0E8E1811439E00C8C927 /* Anime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anime.h; sourceTree = "<group>"; };
-		202B0E8F1811439E00C8C927 /* Anime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Anime.m; sourceTree = "<group>"; };
 		208220A31812157F004F74B9 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		208220A41812157F004F74B9 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		208220A618121B8D004F74B9 /* Anime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anime.h; sourceTree = "<group>"; };
+		208220A718121B8D004F74B9 /* Anime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Anime.m; sourceTree = "<group>"; };
 		20E41709180FA87A00671C68 /* AnimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E4170C180FA87A00671C68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		20E4170E180FA87A00671C68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,9 +151,9 @@
 				202B0E8B18113FD700C8C927 /* MALLoader.h */,
 				202B0E8C18113FD700C8C927 /* MALLoader.m */,
 				20E4172C180FA87A00671C68 /* Images.xcassets */,
+				208220A618121B8D004F74B9 /* Anime.h */,
+				208220A718121B8D004F74B9 /* Anime.m */,
 				20E41723180FA87A00671C68 /* AnimeTracker.xcdatamodeld */,
-				202B0E8E1811439E00C8C927 /* Anime.h */,
-				202B0E8F1811439E00C8C927 /* Anime.m */,
 				20E41715180FA87A00671C68 /* Supporting Files */,
 			);
 			path = AnimeTracker;
@@ -287,11 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202B0E901811439E00C8C927 /* Anime.m in Sources */,
 				208220A51812157F004F74B9 /* XMLDictionary.m in Sources */,
 				20E4171B180FA87A00671C68 /* main.m in Sources */,
 				20E4172B180FA87A00671C68 /* ATDetailViewController.m in Sources */,
 				202B0E8D18113FD700C8C927 /* MALLoader.m in Sources */,
+				208220A818121B8D004F74B9 /* Anime.m in Sources */,
 				20E41725180FA87A00671C68 /* AnimeTracker.xcdatamodeld in Sources */,
 				20E4171F180FA87A00671C68 /* ATAppDelegate.m in Sources */,
 				20E41728180FA87A00671C68 /* ATMasterViewController.m in Sources */,
