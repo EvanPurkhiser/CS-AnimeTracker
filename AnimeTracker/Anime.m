@@ -11,15 +11,16 @@
 
 @implementation Anime
 
+@dynamic airingStatus;
 @dynamic episodesTotal;
 @dynamic episodesWatched;
 @dynamic name;
 @dynamic notes;
 @dynamic rating;
+@dynamic summary;
 @dynamic watchingFinishedOn;
 @dynamic watchingStartedOn;
-@dynamic airingStatus;
-@dynamic summary;
+@dynamic image;
 
 - (void)setDataFromMAL:(NSDictionary *)anime
 {
@@ -28,6 +29,20 @@
     self.name = anime[@"title"];
     self.rating = anime[@"score"];
     self.airingStatus = anime[@"status"];
+
+    // Store image as a BLOB in the database. Yes I realize the implications
+    // of storing binary data into a database, and yes this is very rarely a
+    // good idea. But this is pretty _damn cool_ so why not.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+    ^{
+        NSData *image = [NSData dataWithContentsOfURL:[NSURL URLWithString:anime[@"image_url"]]];
+
+        dispatch_async(dispatch_get_main_queue(),
+        ^{
+            self.image = image;
+            [[self managedObjectContext] save:nil];
+        });
+    });
 }
 
 @end
