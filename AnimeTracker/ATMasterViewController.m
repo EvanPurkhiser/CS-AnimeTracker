@@ -35,10 +35,14 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    // Setup all of the UIBarButtonItems that may appear to the right
+    UIBarButtonItem *addButton    = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd     target:self action:@selector(insertNewObject:)];
     UIBarButtonItem *importButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(importFromMAL:)];
+    UIBarButtonItem *clearButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash   target:self action:@selector(removeAllObjects:)];
 
-    self.navigationItem.rightBarButtonItems = @[addButton, importButton];
+    clearButton.tintColor = [UIColor redColor];
+
+    self.navigationItem.rightBarButtonItems = @[addButton, clearButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +68,19 @@
          // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
+    }
+}
+
+- (void)removeAllObjects:(id)sender
+{
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSFetchRequest *allAnime = [NSFetchRequest new];
+    allAnime.entity = [NSEntityDescription entityForName:@"Anime" inManagedObjectContext:context];
+    allAnime.includesPropertyValues = NO;
+
+    for (Anime *anime in [context executeFetchRequest:allAnime error:nil])
+    {
+        [context deleteObject:anime];
     }
 }
 
