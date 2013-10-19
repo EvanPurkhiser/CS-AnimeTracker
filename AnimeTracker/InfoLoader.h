@@ -13,6 +13,7 @@
 @interface InfoLoader : NSObject
 
 + (NSDictionary *)getAnimeListFor:(NSString *)username;
++ (NSDictionary *)getAnimeInfo:(NSString *)title;
 
 @end
 
@@ -20,5 +21,6 @@
 
 - (BOOL)discardIfidMALExists;
 - (void)setDataFromMAL:(NSDictionary *)anime;
+- (void)setDataFromTVDB:(NSDictionary *)anime;
 
 @end

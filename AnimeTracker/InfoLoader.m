@@ -10,15 +10,30 @@
 #import "XMLDictionary/XMLDictionary.h"
 
 #define MAL_ANIME_LIST_URL @"http://myanimelist.net/malappinfo.php?status=all&type=anime&u=%@"
+#define TVDB_Show_SEARCH   @"http://thetvdb.com/api/GetSeries.php?seriesname=%@"
+#define TVDB_BANNER_URL    @"http://thetvdb.com/banners/%@"
 
 @implementation InfoLoader
 
 + (NSDictionary *)getAnimeListFor:(NSString *)username
 {
+    username = [username stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *animeListURL = [NSURL URLWithString:[NSString stringWithFormat:MAL_ANIME_LIST_URL, username]];
 
-    // Get the data from the URL.. this could take awhiel
+    // Get the data from the URL
     NSData *data = [NSData dataWithContentsOfURL:animeListURL];
+    return [NSDictionary dictionaryWithXMLData:data];
+}
+
++ (NSDictionary *)getAnimeInfo:(NSString *)title
+{
+    title = [title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:TVDB_Show_SEARCH, title]];
+
+    NSLog(@"url is %@", searchURL);
+
+    // Get the data from the URL
+    NSData *data = [NSData dataWithContentsOfURL:searchURL];
     return [NSDictionary dictionaryWithXMLData:data];
 }
 
@@ -72,7 +87,28 @@
     });
 }
 
+- (void)setDataFromTVDB:(NSDictionary *)anime
+{
+    // Setup the values
+    self.idTVDB  = [[NSNumberFormatter alloc] numberFromString:anime[@"seriesid"]];
+    self.summary = anime[@"Overview"];
+    self.network = anime[@"Network"];
+    self.firstAirDate = [anime[@"FirstAired"] date];
 
+    // Again, store the banner as a BLOB
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+    ^{
+        NSURL *bannerURL = [NSURL URLWithString:[NSString stringWithFormat:TVDB_BANNER_URL, anime[@"banner"]]];
+        NSData *image = [NSData dataWithContentsOfURL:bannerURL];
 
+        dispatch_async(dispatch_get_main_queue(),
+        ^{
+            NSLog(@"Saving banner");
+
+            self.imageBanner = image;
+            [[self managedObjectContext] save:nil];
+        });
+    });
+}
 
 @end
