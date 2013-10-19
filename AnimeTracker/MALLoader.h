@@ -12,6 +12,8 @@
 
 @interface MALLoader : NSObject
 
++ (NSDictionary *)getAnimeListFor:(NSString *)username;
+
 @end
 
 @interface Anime (MALLoader)

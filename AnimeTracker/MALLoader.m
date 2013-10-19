@@ -7,8 +7,20 @@
 //
 
 #import "MALLoader.h"
+#import "XMLDictionary/XMLDictionary.h"
+
+#define MAL_ANIME_LIST_URL @"http://myanimelist.net/malappinfo.php?status=all&type=anime&u=%@"
 
 @implementation MALLoader
+
++ (NSDictionary *)getAnimeListFor:(NSString *)username
+{
+    NSURL *animeListURL = [NSURL URLWithString:[NSString stringWithFormat:MAL_ANIME_LIST_URL, username]];
+
+    // Get the data from the URL.. this could take awhiel
+    NSData *data = [NSData dataWithContentsOfURL:animeListURL];
+    return [NSDictionary dictionaryWithXMLData:data];
+}
 
 @end
 
