@@ -54,6 +54,11 @@
 
     self.summary.text = [[self.detailItem valueForKey:@"summary"] description];
 
+    if ([self.summary.text isEqual:@""])
+    {
+        self.summary.text = @"Write summary here!";
+    }
+
     self.watchedEpisodes.text = [[self.detailItem valueForKey:@"episodesWatched"] description];
     self.totalEpisodes.text   = [[self.detailItem valueForKey:@"episodesTotal"] description];
     self.episodeProgress.progress = [self.watchedEpisodes.text floatValue] / [self.totalEpisodes.text floatValue];
@@ -63,7 +68,10 @@
 {
     [super viewWillLayoutSubviews];
 
-    [self.summaryHeightConstraint setConstant:self.summary.contentSize.height];
+    if (self.summary.contentSize.height > 100)
+    {
+        [self.summaryHeightConstraint setConstant:self.summary.contentSize.height];
+    }
 }
 
 - (void)viewDidLoad
@@ -118,6 +126,11 @@
     }
 
     return YES;
+}
+
+- (IBAction)doneEditing:(id)sender
+{
+    // Do nothing
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
