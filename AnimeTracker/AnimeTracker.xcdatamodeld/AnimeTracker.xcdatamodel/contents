@@ -4,9 +4,12 @@
         <attribute name="airingStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="episodesTotal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="episodesWatched" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstAirDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="idMAL" optional="YES" attributeType="Integer 32" indexed="YES" syncable="YES"/>
+        <attribute name="idTVDB" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="network" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>

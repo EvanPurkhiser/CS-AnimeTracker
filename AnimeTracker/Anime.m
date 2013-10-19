@@ -2,7 +2,7 @@
 //  Anime.m
 //  AnimeTracker
 //
-//  Created by Evan Purkhiser on 10/18/13.
+//  Created by Evan Purkhiser on 10/19/13.
 //  Copyright (c) 2013 Evan Purkhiser. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @dynamic airingStatus;
 @dynamic episodesTotal;
 @dynamic episodesWatched;
+@dynamic idMAL;
 @dynamic image;
 @dynamic name;
 @dynamic notes;
@@ -21,6 +22,8 @@
 @dynamic summary;
 @dynamic watchingFinishedOn;
 @dynamic watchingStartedOn;
-@dynamic idMAL;
+@dynamic idTVDB;
+@dynamic firstAirDate;
+@dynamic network;
 
 @end
