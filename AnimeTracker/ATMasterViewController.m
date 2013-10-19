@@ -334,9 +334,9 @@ NSArray *leftButtonsEditing;
 
     cell.textLabel.text  = [[object valueForKey:@"name"] description];
     
-    if ([object valueForKey:@"image"])
+    if ([object valueForKey:@"imagePoster"])
     {
-        cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
+        cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"imagePoster"]];
     }
     else
     {

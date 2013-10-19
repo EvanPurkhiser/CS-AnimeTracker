@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSNumber * episodesTotal;
 @property (nonatomic, retain) NSNumber * episodesWatched;
 @property (nonatomic, retain) NSNumber * idMAL;
-@property (nonatomic, retain) NSData * image;
+@property (nonatomic, retain) NSData * imagePoster;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSNumber * rating;
@@ -26,5 +26,6 @@
 @property (nonatomic, retain) NSNumber * idTVDB;
 @property (nonatomic, retain) NSDate * firstAirDate;
 @property (nonatomic, retain) NSString * network;
+@property (nonatomic, retain) NSData * imageBanner;
 
 @end

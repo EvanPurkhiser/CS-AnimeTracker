@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		202B0E8D18113FD700C8C927 /* InfoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 202B0E8C18113FD700C8C927 /* InfoLoader.m */; };
 		2080EFBB181237B30090ABC8 /* ATCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2080EFBA181237B30090ABC8 /* ATCell.m */; };
-		2081D3C11812827F00C7250C /* Anime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2081D3C01812827F00C7250C /* Anime.m */; };
+		2081D3C41812848600C7250C /* Anime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2081D3C31812848600C7250C /* Anime.m */; };
 		208220A51812157F004F74B9 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 208220A41812157F004F74B9 /* XMLDictionary.m */; };
 		20E4170D180FA87A00671C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170C180FA87A00671C68 /* Foundation.framework */; };
 		20E4170F180FA87A00671C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170E180FA87A00671C68 /* CoreGraphics.framework */; };
@@ -46,8 +46,8 @@
 		202B0E8C18113FD700C8C927 /* InfoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLoader.m; sourceTree = "<group>"; };
 		2080EFB9181237B30090ABC8 /* ATCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCell.h; sourceTree = "<group>"; };
 		2080EFBA181237B30090ABC8 /* ATCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCell.m; sourceTree = "<group>"; };
-		2081D3BF1812827F00C7250C /* Anime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anime.h; sourceTree = "<group>"; };
-		2081D3C01812827F00C7250C /* Anime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Anime.m; sourceTree = "<group>"; };
+		2081D3C21812848600C7250C /* Anime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anime.h; sourceTree = "<group>"; };
+		2081D3C31812848600C7250C /* Anime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Anime.m; sourceTree = "<group>"; };
 		208220A31812157F004F74B9 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		208220A41812157F004F74B9 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 		20E41709180FA87A00671C68 /* AnimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,10 +155,10 @@
 				20E4172A180FA87A00671C68 /* ATDetailViewController.m */,
 				202B0E8B18113FD700C8C927 /* InfoLoader.h */,
 				202B0E8C18113FD700C8C927 /* InfoLoader.m */,
+				2081D3C21812848600C7250C /* Anime.h */,
+				2081D3C31812848600C7250C /* Anime.m */,
 				20E4172C180FA87A00671C68 /* Images.xcassets */,
 				20E41723180FA87A00671C68 /* AnimeTracker.xcdatamodeld */,
-				2081D3BF1812827F00C7250C /* Anime.h */,
-				2081D3C01812827F00C7250C /* Anime.m */,
 				20E41715180FA87A00671C68 /* Supporting Files */,
 			);
 			path = AnimeTracker;
@@ -295,7 +295,7 @@
 				208220A51812157F004F74B9 /* XMLDictionary.m in Sources */,
 				20E4171B180FA87A00671C68 /* main.m in Sources */,
 				20E4172B180FA87A00671C68 /* ATDetailViewController.m in Sources */,
-				2081D3C11812827F00C7250C /* Anime.m in Sources */,
+				2081D3C41812848600C7250C /* Anime.m in Sources */,
 				202B0E8D18113FD700C8C927 /* InfoLoader.m in Sources */,
 				2080EFBB181237B30090ABC8 /* ATCell.m in Sources */,
 				20E41725180FA87A00671C68 /* AnimeTracker.xcdatamodeld in Sources */,
