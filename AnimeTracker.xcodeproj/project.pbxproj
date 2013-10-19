@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20AC69C5180FC647008CBB5C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AC69C4180FC647008CBB5C /* Show.m */; };
 		20E4170D180FA87A00671C68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170C180FA87A00671C68 /* Foundation.framework */; };
 		20E4170F180FA87A00671C68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E4170E180FA87A00671C68 /* CoreGraphics.framework */; };
 		20E41711180FA87A00671C68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E41710180FA87A00671C68 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20AC69C3180FC647008CBB5C /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
+		20AC69C4180FC647008CBB5C /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
 		20E41709180FA87A00671C68 /* AnimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E4170C180FA87A00671C68 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		20E4170E180FA87A00671C68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +131,8 @@
 				20E41720180FA87A00671C68 /* Main.storyboard */,
 				20E41726180FA87A00671C68 /* ATMasterViewController.h */,
 				20E41727180FA87A00671C68 /* ATMasterViewController.m */,
+				20AC69C3180FC647008CBB5C /* Show.h */,
+				20AC69C4180FC647008CBB5C /* Show.m */,
 				20E41729180FA87A00671C68 /* ATDetailViewController.h */,
 				20E4172A180FA87A00671C68 /* ATDetailViewController.m */,
 				20E4172C180FA87A00671C68 /* Images.xcassets */,
@@ -268,6 +273,7 @@
 				20E4172B180FA87A00671C68 /* ATDetailViewController.m in Sources */,
 				20E41725180FA87A00671C68 /* AnimeTracker.xcdatamodeld in Sources */,
 				20E4171F180FA87A00671C68 /* ATAppDelegate.m in Sources */,
+				20AC69C5180FC647008CBB5C /* Show.m in Sources */,
 				20E41728180FA87A00671C68 /* ATMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +483,7 @@
 				20E41746180FA87A00671C68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20E41747180FA87A00671C68 /* Build configuration list for PBXNativeTarget "AnimeTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +492,7 @@
 				20E41749180FA87A00671C68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
