@@ -67,10 +67,15 @@
 
     // Add input box
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    // Default to my MAL username (Because really, I'm the only nerd who keeps track of what Anime they've watched..)
-    [alert textFieldAtIndex:0].text = @"EvanPurkhiser";
+    UITextField *usernameInput = [alert textFieldAtIndex:0];
 
     [alert show];
+
+    // Default to my MAL username (Because really, I'm the only nerd who keeps track of what Anime they've watched..)
+    usernameInput.text = @"EvanPurkhiser";
+
+    // Make the input box
+    usernameInput.textAlignment   = NSTextAlignmentCenter;
 }
 
 - (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonId
