@@ -7,6 +7,7 @@
 //
 
 #import "ATDetailViewController.h"
+#import "InfoLoader.h"
 
 @interface ATDetailViewController ()
 - (void)configureView;
@@ -20,7 +21,7 @@
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
@@ -28,17 +29,76 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"name"] description];
+    if ( ! self.detailItem) return;
+    
+    self.banner.image = [UIImage imageWithData:[self.detailItem valueForKey:@"imageBanner"]];
+    
+    // Constrain the banner to scale properly
+    float scale = self.banner.image.size.height / self.banner.image.size.width;
+    
+    if (scale == scale && scale)
+    {
+        [self.banner addConstraint:[NSLayoutConstraint
+            constraintWithItem:self.banner
+            attribute:NSLayoutAttributeHeight
+            relatedBy:NSLayoutRelationEqual
+            toItem:self.banner
+            attribute:NSLayoutAttributeWidth
+            multiplier:self.banner.image.size.height / self.banner.image.size.width
+            constant:0]];
     }
+    
+    // Setup the anime title, numberOfLines = 0 will allow it to wrap
+    self.name.text = [[self.detailItem valueForKey:@"name"] description];
+    self.name.numberOfLines = 0;
+    
+    self.summary.text = [[self.detailItem valueForKey:@"summary"] description];
+    
+    self.watchedEpisodes.text = [[self.detailItem valueForKey:@"episodesWatched"] description];
+    self.totalEpisodes.text   = [[self.detailItem valueForKey:@"episodesTotal"] description];
+    self.episodeProgress.progress = [self.watchedEpisodes.text floatValue] / [self.totalEpisodes.text floatValue];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    [self.summaryHeightConstraint setConstant:self.summary.contentSize.height];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self configureView];
+
+    // Constrain the containerView (that's inside the scroll view) to the main view so
+    // that it stays the proper width inside of the scroll view and allows us to constrain
+    // other UI elements in IB without having to deal with code
+    // http://stackoverflow.com/a/16471244/690169
+    UIView *view = self.view;
+    UIView *containerView = self.scrollViewContainer;
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(containerView, view);
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[containerView(==view)]|" options:0 metrics:nil views:views]];
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Load data from the TVDB about this series if possible
+    if ([self.detailItem valueForKey:@"idTVDB"] == nil)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+        ^{
+            [self.detailItem setDataFromTVDB:[InfoLoader getAnimeInfo:[self.detailItem valueForKey:@"name"]]];
+            dispatch_async(dispatch_get_main_queue(), ^{[[self.detailItem managedObjectContext] save:nil]; });
+        });
+    }
+    
+    // Fire an event when it's updated
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateDetailItem:) name:NSManagedObjectContextDidSaveNotification object:[self.detailItem managedObjectContext]];
+}
+
+- (void)didUpdateDetailItem:(NSNotification *)notification
+{
     [self configureView];
 }
 
