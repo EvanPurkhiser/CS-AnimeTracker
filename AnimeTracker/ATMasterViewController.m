@@ -63,7 +63,7 @@
 
 - (void)importFromMAL:(id)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import	", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import Anime List" message:@"Enter a MyAnimeList Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
 
     // Add input box
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
