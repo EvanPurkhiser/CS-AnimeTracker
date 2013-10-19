@@ -14,7 +14,12 @@
 #define MAL_ANIME_LIST_URL @"http://mal-api.com/animelist/%@"
 
 @interface ATMasterViewController ()
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)importFromMAL:(id)sender;
+
+
+
 @end
 
 @implementation ATMasterViewController
