@@ -154,6 +154,12 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
+
+    // Cleanup the iamgeView styling
+    cell.imageView.clipsToBounds = YES;
+    cell.imageView.layer.cornerRadius = 2;
+    cell.imageView.layer.minificationFilter = kCAFilterTrilinear;
+
     return cell;
 }
 
@@ -299,9 +305,6 @@
 
     cell.textLabel.text  = [[object valueForKey:@"name"] description];
     cell.imageView.image = [UIImage imageWithData:[object valueForKey:@"image"]];
-
-    // Improve the scaled quality of the image by using a trilinear filtering algorithm
-    [cell.imageView.layer setMinificationFilter:kCAFilterTrilinear];
 }
 
 @end
