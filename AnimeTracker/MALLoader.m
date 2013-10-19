@@ -28,6 +28,7 @@
 
 - (void)setDataFromMAL:(NSDictionary *)anime
 {
+    self.idMAL           = [[NSNumberFormatter alloc] numberFromString:anime[@"series_animedb_id"]];
     self.episodesTotal   = [[NSNumberFormatter alloc] numberFromString:anime[@"series_episodes"]];
     self.episodesWatched = [[NSNumberFormatter alloc] numberFromString:anime[@"my_watched_episodes"]];
     self.rating          = [[NSNumberFormatter alloc] numberFromString:anime[@"my_score"]];

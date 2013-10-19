@@ -21,5 +21,6 @@
 @dynamic summary;
 @dynamic watchingFinishedOn;
 @dynamic watchingStartedOn;
+@dynamic idMAL;
 
 @end

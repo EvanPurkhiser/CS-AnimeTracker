@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSString * summary;
 @property (nonatomic, retain) NSDate * watchingFinishedOn;
 @property (nonatomic, retain) NSDate * watchingStartedOn;
+@property (nonatomic, retain) NSNumber * idMAL;
 
 @end
