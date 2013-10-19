@@ -11,10 +11,6 @@
 #import "Anime.h"
 #import "MALLoader.h"
 
-#import "XMLDictionary/XMLDictionary.h"
-
-#define MAL_ANIME_LIST_URL @"http://myanimelist.net/malappinfo.php?status=all&type=anime&u=%@"
-
 @interface ATMasterViewController ()
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -149,16 +145,9 @@ NSArray *leftButtonsEditing;
     // Load the animelist in a thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
     ^{
-        // Construct the URL to load
+        // Load anime list from MAL
         NSString *username  = [alert textFieldAtIndex:0].text;
-        NSURL *animeListURL = [NSURL URLWithString:[NSString stringWithFormat:MAL_ANIME_LIST_URL, username]];
-
-        // Get the data from the URL.. this could take awhiel
-        NSData *data = [NSData dataWithContentsOfURL:animeListURL];
-        NSDictionary *animeList = [NSDictionary dictionaryWithXMLData:data];
-
-        // Check for errors
-        NSString *errorMessage = animeList[@"error"];
+        NSDictionary *animeList = [MALLoader getAnimeListFor:username];
 
         // Load each Anime into the data store
         for (NSDictionary *anime in animeList[@"anime"])
@@ -169,9 +158,9 @@ NSArray *leftButtonsEditing;
         // Updates must happen on the main thread
         dispatch_async(dispatch_get_main_queue(),
         ^{
-            if (errorMessage)
+            if (animeList[@"error"])
             {
-                [[[UIAlertView alloc] initWithTitle:@"Problem Importing Anime List" message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                [[[UIAlertView alloc] initWithTitle:@"Problem Importing Anime List" message:animeList[@"error"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
             }
 
             // Return the right navigation buttons to the normal set
