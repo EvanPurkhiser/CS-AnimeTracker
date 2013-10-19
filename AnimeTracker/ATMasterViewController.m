@@ -96,19 +96,26 @@
         NSURL *animeListURL = [NSURL URLWithString:[NSString stringWithFormat:MAL_ANIME_LIST_URL, username]];
 
         // Get the data from the URL.. this could take awhiel
-        NSData *data = [NSData dataWithContentsOfURL:animeListURL];
+        NSData *data = [NSData dataWithContentsOfURL:animeListURL ];
 
-        // Load into a NSJSONSerialization object
-        NSError *serializationError;
-        NSMutableDictionary *animeList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
-
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-
-        // Load each Anime into the data store
-        for (NSDictionary *anime in animeList[@"anime"])
+        if (data)
         {
-            [[[Show alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
+            // Load into a NSJSONSerialization object
+            NSError *serializationError;
+            NSMutableDictionary *animeList = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
+
+            NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+            NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+
+            // Load each Anime into the data store
+            for (NSDictionary *anime in animeList[@"anime"])
+            {
+                [[[Show alloc] initWithEntity:entity insertIntoManagedObjectContext:context] setDataFromMAL:anime];
+            }
+        }
+        else
+        {
+            [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid MyAnimeList Username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }
 
         // All done, get rid of the throbber
