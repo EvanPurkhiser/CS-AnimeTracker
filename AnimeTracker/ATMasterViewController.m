@@ -18,11 +18,15 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)importFromMAL:(id)sender;
 
-
-
 @end
 
 @implementation ATMasterViewController
+
+NSArray *rightButtonsNormal;
+NSArray *rightButtonsImporting;
+
+NSArray *leftButtonsNormal;
+NSArray *leftButtonsEditing;
 
 - (void)awakeFromNib
 {
@@ -32,17 +36,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     // Setup all of the UIBarButtonItems that may appear to the right
-    UIBarButtonItem *addButton    = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd     target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton    = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     UIBarButtonItem *importButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(importFromMAL:)];
-    UIBarButtonItem *clearButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash   target:self action:@selector(removeAllObjects:)];
+    
+    UIActivityIndicatorView *throbber = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 32, 20)];
+    throbber.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    UIBarButtonItem *throbberButton = [[UIBarButtonItem alloc] initWithCustomView:throbber];
+    [throbber startAnimating];
+    
+    rightButtonsNormal    = @[addButton, importButton];
+    rightButtonsImporting = @[addButton, throbberButton];
 
+    UIBarButtonItem *clearButton  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(removeAllObjects:)];
     clearButton.tintColor = [UIColor redColor];
-
-    self.navigationItem.rightBarButtonItems = @[addButton, clearButton];
+    
+    leftButtonsEditing = @[self.editButtonItem, clearButton];
+    leftButtonsNormal  = @[self.editButtonItem];
+    
+    self.navigationItem.leftBarButtonItems  = leftButtonsNormal;
+    self.navigationItem.rightBarButtonItems = rightButtonsNormal;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,17 +85,35 @@
     }
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    NSLog(@"is animaated: %d", animated);
+    
+    if (editing)
+    {
+        self.navigationItem.leftBarButtonItems = leftButtonsEditing;
+    }
+    else
+    {
+        self.navigationItem.leftBarButtonItems = leftButtonsNormal;
+    }
+}
+
 - (void)removeAllObjects:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSFetchRequest *allAnime = [NSFetchRequest new];
     allAnime.entity = [NSEntityDescription entityForName:@"Anime" inManagedObjectContext:context];
     allAnime.includesPropertyValues = NO;
-
+    
     for (Anime *anime in [context executeFetchRequest:allAnime error:nil])
     {
         [context deleteObject:anime];
     }
+    
+    [context save:nil];
 }
 
 - (void)importFromMAL:(id)sender
@@ -105,16 +137,9 @@
 {
     // This is only used for importing from MAL
     if (buttonId == alert.cancelButtonIndex) return;
-
-    // Change the import button into a throbber
-    UIActivityIndicatorView *throbber = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 32, 20)];
-    throbber.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    UIBarButtonItem *throbberButton = [[UIBarButtonItem alloc] initWithCustomView:throbber];
-    [throbber startAnimating];
-
-    // Hold on to the old button so we can reattach it later
-    UIBarButtonItem *priorLoadButton = self.navigationItem.rightBarButtonItems[1];
-    self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], throbberButton];
+    
+    // Change the navigation buttons to the importing state
+    self.navigationItem.rightBarButtonItems = rightButtonsImporting;
 
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -150,9 +175,9 @@
                 [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid MyAnimeList Username" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
             }
 
-            // All done, get rid of the throbber
-            self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItems[0], priorLoadButton];
-
+            // Return the right navigation buttons to the normal set
+            self.navigationItem.rightBarButtonItems = rightButtonsNormal;
+            
             [context save:nil];
         });
 
@@ -177,6 +202,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
 
+    // Crop the image into
+    
+    
     // Cleanup the iamgeView styling
     cell.imageView.clipsToBounds = YES;
     cell.imageView.layer.cornerRadius = 2;
