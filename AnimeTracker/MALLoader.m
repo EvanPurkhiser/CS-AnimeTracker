@@ -47,12 +47,15 @@
 
 - (void)setDataFromMAL:(NSDictionary *)anime
 {
+    // Setup the values
     self.idMAL           = [[NSNumberFormatter alloc] numberFromString:anime[@"series_animedb_id"]];
     self.episodesTotal   = [[NSNumberFormatter alloc] numberFromString:anime[@"series_episodes"]];
     self.episodesWatched = [[NSNumberFormatter alloc] numberFromString:anime[@"my_watched_episodes"]];
     self.rating          = [[NSNumberFormatter alloc] numberFromString:anime[@"my_score"]];
     self.name            = anime[@"series_title"];
     self.airingStatus    = anime[@"my_status"];
+
+    if ([self discardIfidMALExists]) return;
 
     // Store image as a BLOB in the database. Yes I realize the implications
     // of storing binary data into a database, and yes this is very rarely a
